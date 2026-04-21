@@ -1,0 +1,59 @@
+{
+  "name": "itingnao",
+  "version": "1.0.1",
+  "description": "iTingnao Skill - 上传本地音频/视频到 OSS，创建转写任务，并读取、搜索、更新文件内容。",
+  "main": "./bin/itingnao.js",
+  "license": "MIT-0",
+  "author": "itingnao",
+  "homepage": "https://itingnao.com",
+  "bin": {
+    "itingnao": "./bin/itingnao.js"
+  },
+  "files": [
+    "bin",
+    "scripts",
+    "references",
+    "README.md",
+    "SKILL.md",
+    "_meta.json"
+  ],
+  "scripts": {
+    "cli:help": "node ./bin/itingnao.js --help",
+    "build:binary:host": "node ./scripts/build_binary.js --target host",
+    "build:binary:macos-arm64": "node ./scripts/build_binary.js --target node18-macos-arm64 --output dist/itingnao-macos-arm64",
+    "build:binary:macos-x64": "node ./scripts/build_binary.js --target node18-macos-x64 --output dist/itingnao-macos-x64",
+    "build:binary:linux-x64": "node ./scripts/build_binary.js --target node18-linux-x64 --output dist/itingnao-linux-x64",
+    "build:binary:win-x64": "node ./scripts/build_binary.js --target node18-win-x64 --output dist/itingnao-win-x64.exe",
+    "build:binary:all": "npm run build:binary:macos-arm64 && npm run build:binary:macos-x64 && npm run build:binary:linux-x64 && npm run build:binary:win-x64"
+  },
+  "pkg": {
+    "targets": [
+      "node18-macos-arm64"
+    ],
+    "outputPath": "dist"
+  },
+  "keywords": [
+    "itingnao",
+    "transcription",
+    "meeting-summary",
+    "audio",
+    "video",
+    "cli",
+    "openclaw",
+    "skill"
+  ],
+  "clawhub": {
+    "acceptLicenseTerms": true
+  },
+  "openclaw": {
+    "minVersion": "0.1.0",
+    "baseUrl": "https://api.itingnao.com",
+    "requires": {},
+    "optionalEnv": [
+      "ITINGNAO_API_KEY"
+    ]
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
+}
